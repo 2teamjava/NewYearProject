@@ -1,0 +1,158 @@
+	<c:set var="DataBaseName" value="newyear"/>
+	<c:set var="DataBaseUserAccount" value="newyear"/>
+	<c:set var="DataBaseUserPassword" value="newyear"/>
+	<c:set var="DataBaseURL"/>
+	<%
+	String name=(String)pageContext.getAttribute("DataBaseName");
+	String url="jdbc:mysql://localhost:3306/"+name;
+	pageContext.setAttribute("DataBaseURL",url);
+	%>
+	<sql:setDataSource var="DataBase" driver="com.mysql.cj.jdbc.Driver"
+	url="${DataBaseURL}" user="${DataBaseUserAccount}" password="${DataBaseUserPassword}"/>
+    <!-- sql:query 資料表查詢 -->
+    <sql:query dataSource="${DataBase}" var="result">
+    	SELECT * FROM member;
+	</sql:query>
+	<table border="1">
+		<tr>
+			<th>member_index</th>
+			<th>name</th>
+			<th>phone</th>
+			<th>address</th>
+			<th>account</th>
+			<th>password</th>
+			<th>order_id</th>
+		</tr>
+		<c:forEach var="row" items="${result.rows}">
+			<tr>
+				<td><c:out value="${row.member_index}"/></td>
+				<td><c:out value="${row.name}"/></td>
+				<td><c:out value="${row.phone}"/></td>
+				<td><c:out value="${row.address}"/></td>
+				<td><c:out value="${row.account}"/></td>
+				<td><c:out value="${row.password}"/></td>
+				<td><c:out value="${row.order_id}"/></td>
+			</tr>
+		</c:forEach>
+	</table>
+	<br>
+	<!-- sql:update 資料移除 -->
+	<sql:update dataSource="${DataBase}" var="delete">
+		DELETE FROM member WHERE member_index=5;
+	</sql:update>
+	<sql:query dataSource="${DataBase}" var="result">
+    	SELECT * FROM member;
+	</sql:query>
+	<table border="1">
+		<tr>
+			<th>member_index</th>
+			<th>name</th>
+			<th>phone</th>
+			<th>address</th>
+			<th>account</th>
+			<th>password</th>
+			<th>order_id</th>
+		</tr>
+		<c:forEach var="row" items="${result.rows}">
+			<tr>
+				<td><c:out value="${row.member_index}"/></td>
+				<td><c:out value="${row.name}"/></td>
+				<td><c:out value="${row.phone}"/></td>
+				<td><c:out value="${row.address}"/></td>
+				<td><c:out value="${row.account}"/></td>
+				<td><c:out value="${row.password}"/></td>
+				<td><c:out value="${row.order_id}"/></td>
+			</tr>
+		</c:forEach>
+	</table>
+	<br>
+	<!-- sql:update 資料新增 -->
+	<!-- 避免重複新增，所以先刪除資料 -->
+	<sql:update dataSource="${DataBase}" var="delete">
+		DELETE FROM member WHERE member_index=5;
+	</sql:update>
+	<sql:update dataSource="${DataBase}" var="insert">
+   		INSERT INTO member VALUES (5,"千花醬","8787878787","日本","chika","chika","order2");
+	</sql:update>
+	<sql:query dataSource="${DataBase}" var="result">
+    	SELECT * from member;
+	</sql:query>
+	<table border="1">
+		<tr>
+			<th>member_index</th>
+			<th>name</th>
+			<th>phone</th>
+			<th>address</th>
+			<th>account</th>
+			<th>password</th>
+			<th>order_id</th>
+		</tr>
+		<c:forEach var="row" items="${result.rows}">
+			<tr>
+				<td><c:out value="${row.member_index}"/></td>
+				<td><c:out value="${row.name}"/></td>
+				<td><c:out value="${row.phone}"/></td>
+				<td><c:out value="${row.address}"/></td>
+				<td><c:out value="${row.account}"/></td>
+				<td><c:out value="${row.password}"/></td>
+				<td><c:out value="${row.order_id}"/></td>
+			</tr>
+		</c:forEach>
+	</table>
+	<br>
+	<!-- sql:update 資料修改 -->
+	<sql:update dataSource="${DataBase}" var="update">
+		UPDATE member SET order_id="order3,order5" WHERE member_index=3;
+	</sql:update>
+	<sql:query dataSource="${DataBase}" var="result">
+    	SELECT * from member;
+	</sql:query>
+	<table border="1">
+		<tr>
+			<th>member_index</th>
+			<th>name</th>
+			<th>phone</th>
+			<th>address</th>
+			<th>account</th>
+			<th>password</th>
+			<th>order_id</th>
+		</tr>
+		<c:forEach var="row" items="${result.rows}">
+			<tr>
+				<td><c:out value="${row.member_index}"/></td>
+				<td><c:out value="${row.name}"/></td>
+				<td><c:out value="${row.phone}"/></td>
+				<td><c:out value="${row.address}"/></td>
+				<td><c:out value="${row.account}"/></td>
+				<td><c:out value="${row.password}"/></td>
+				<td><c:out value="${row.order_id}"/></td>
+			</tr>
+		</c:forEach>
+	</table>
+	<br>
+    <!-- sql:query 資料表查詢 -->
+    <sql:query dataSource="${DataBase}" var="result">
+    	SELECT * FROM commodity WHERE type="bed";
+	</sql:query>
+	<table border="1">
+		<tr>
+			<th>item_index</th>
+			<th>type</th>
+			<th>brand</th>
+			<th>location</th>
+			<th>cost</th>
+			<th>purchasetime</th>
+			<th>life_month</th>
+		</tr>
+		<c:forEach var="row" items="${result.rows}">
+			<tr>
+				<td><c:out value="${row.item_index}"/></td>
+				<td><c:out value="${row.type}"/></td>
+				<td><c:out value="${row.brand}"/></td>
+				<td><c:out value="${row.location}"/></td>
+				<td><c:out value="${row.cost}"/></td>
+				<td><c:out value="${row.purchasetime}"/></td>
+				<td><c:out value="${row.life_month}"/></td>
+			</tr>
+		</c:forEach>
+	</table>

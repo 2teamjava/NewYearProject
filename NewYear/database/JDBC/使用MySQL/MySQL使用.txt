@@ -1,0 +1,12 @@
+1:進入MySQL Workbench
+2:新增schema
+3:點擊兩下新增的schema
+4:下方切換到Administration
+5:Data Import
+6:Import from Self-Contained File
+7:選擇newyear.sql
+8:新增sql腳本來查詢資料
+#######################################
+JDBC:
+連線方法與xampp相同
+只有在使用者的帳號密碼要換成MySQL裡面的

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+                                                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <wb-module deploy-name="NewYear">
+                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+                        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/css"/>
+                        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/dist"/>
+                        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/images"/>
+                        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/scss"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/scripts"/>
+                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <property name="context-root" value="NewYear"/>
+                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <property name="java-output-path" value="/NewYear/build/classes"/>
+                                                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </wb-module>
+                                            
+
+
+
+
+
+
+
+
+
+
+</project-modules>

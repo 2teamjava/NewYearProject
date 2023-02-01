@@ -1,0 +1,23 @@
+@use '_01.scss' as R;
+
+@include R.Rwd(xs){
+    main{
+        nav{
+            font-size: 1rem;
+        }
+        ul{
+            .name{
+                margin-left: 5%;
+                margin-bottom: 1.3%;
+            }
+        }
+    }
+    footer{
+        height: 16%;
+        background-color: brown;
+        float: left;
+    
+    }
+    
+    
+}
